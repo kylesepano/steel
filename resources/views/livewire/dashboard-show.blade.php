@@ -311,7 +311,7 @@
                                                     @endif
                                                 @endif
                                             @endif
-                                            {{ $per_piece }}
+                                            {{ number_format($per_piece, 2, '.', ',') }}
                                         </h5>
                                     </div>
                                     <div class="col-md-1 ">
@@ -323,8 +323,8 @@
                                                 @endphp
                                             @endif
                                         @endif
-                                        <h5>  {{ $per_piece }}</h5>
-                                      
+                                        <h5> {{ number_format($per_piece, 2, '.', ',') }}</h5>
+
                                         @php
                                             $total += $per_piece;
                                         @endphp
@@ -340,7 +340,8 @@
                                                 $discount_total += $discounted_perpiece;
                                             @endphp
                                             <h5>
-                                                {{ $discounted_perpiece }}
+                                                {{ number_format($discounted_perpiece, 2, '.', ',') }}
+
                                             </h5>
                                         </div>
                                     @endif
@@ -366,7 +367,7 @@
 
                                     </div>
                                     <div class="col-md-2 p-0">
-                                        <h5>{{ $total }}</h5>
+                                        <h5> {{ number_format($total, 2, '.', ',') }}</h5>
                                     </div>
                                 @endif
 
@@ -378,17 +379,18 @@
                                             <h5 for="">Discount </h5>
                                         </div>
                                         <div class="col-md-1">
-                                            <h5 for="">(
+                                            <h5 for="">
                                                 @if ($discount_type == 2)
                                                     @php
                                                         $discount_total = $total * ($discount_amount / 100);
                                                     @endphp
                                                 @else
                                                     @php
-                                                        $discount_total = $total - $discount_amount;
+                                                        $discount_total = $discount_amount;
                                                     @endphp
                                                 @endif
-                                                {{ $discount_total }})
+                                                {{ number_format($discount_total, 2, '.', ',') }}
+
                                             </h5>
                                         </div>
                                         <div class="col-md-2 p-0">
@@ -402,7 +404,8 @@
 
                                         </div>
                                         <div class="col-md-1">
-                                            <h5 for=""> ( {{ $total - $discount_total }} )</h5>
+                                            <h5 for="">
+                                                {{ number_format($total - $discount_total, 2, '.', ',') }} </h5>
                                         </div>
                                         <div class="col-md-1 p-0">
 
@@ -421,7 +424,8 @@
                                         <h6 for="">Grand Total </h6>
                                     </div>
                                     <div class="col-md-1">
-                                        <h5 for="">{{ $total - $discount_total }} </h5>
+                                        <h5 for="">
+                                            {{ number_format($total - $discount_total, 2, '.', ',') }} </h5>
                                     </div>
                                     <div class="col-md-2 p-0">
 
@@ -434,7 +438,9 @@
 
                                     </div>
                                     <div class="col-md-1">
-                                        <h5 for="">{{ $total - ($total - $discount_total) }}</h5>
+                                        <h5 for="">
+                                            {{ number_format($total - ($total - $discount_total), 2, '.', ',') }}
+                                        </h5>
                                     </div>
                                     <div class="col-md-1 p-0">
 
@@ -614,7 +620,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <br>
-                                        <div class="pt-2">
+                                        <div class="pt-4">
                                             <label>NO DISCOUNT</label>
                                             <br>
                                             <label>Less % per item</label>
@@ -823,7 +829,8 @@
                                                         @endif
                                                     @endif
                                                 @endif
-                                                {{ $per_piece }}
+
+                                                {{ number_format($per_piece, 2, '.', ',') }}
                                             </h5>
                                         </div>
                                         <div class="col-md-1 ">
@@ -835,7 +842,9 @@
                                                     @endphp
                                                 @endif
                                             @endif
-                                            {{ $per_piece }}
+                                            <h5> {{ number_format($per_piece, 2, '.', ',') }}</h5>
+
+
                                             @php
                                                 $total += $per_piece;
                                             @endphp
@@ -857,7 +866,8 @@
                                                     $discount_total += $discounted_perpiece;
                                                 @endphp
                                                 <h5>
-                                                    {{ $discounted_perpiece }}
+                                                    {{ number_format($discounted_perpiece, 2, '.', ',') }}
+
                                                 </h5>
                                             </div>
                                             <div class="col-md-1 p-0 m-0">
@@ -881,7 +891,7 @@
                                     </div>
                                     @if ($discount_type != 1)
                                         <div class="col-md-1">
-                                            <h5>{{ $total }}</h5>
+                                            <h5>{{ number_format($total, 2, '.', ',') }}</h5>
                                         </div>
                                         <div class="col-md-2 p-0">
 
@@ -891,7 +901,7 @@
 
                                         </div>
                                         <div class="col-md-2 p-0">
-                                            <h5>{{ $total }}</h5>
+                                            <h5>{{ number_format($total, 2, '.', ',') }}</h5>
                                         </div>
                                     @endif
 
@@ -903,17 +913,18 @@
                                                 <h5 for="">Discount </h5>
                                             </div>
                                             <div class="col-md-1">
-                                                <h5 for="">(
+                                                <h5 for="">
                                                     @if ($discount_type == 2)
                                                         @php
                                                             $discount_total = $total * ($discount_amount / 100);
                                                         @endphp
                                                     @else
                                                         @php
-                                                            $discount_total = $total - $discount_amount;
+                                                            $discount_total = $discount_amount;
                                                         @endphp
                                                     @endif
-                                                    {{ $discount_total }})
+                                                    {{ number_format($discount_total, 2, '.', ',') }}
+
                                                 </h5>
                                             </div>
                                             <div class="col-md-2 p-0">
@@ -927,7 +938,9 @@
 
                                             </div>
                                             <div class="col-md-1">
-                                                <h5 for=""> ( {{ $total - $discount_total }} )</h5>
+
+                                                <h5 for=""> (
+                                                    {{ number_format($total - $discount_total, 2, '.', ',') }} )</h5>
                                             </div>
                                             <div class="col-md-1 p-0">
 
@@ -946,7 +959,8 @@
                                             <h6 for="">Grand Total </h6>
                                         </div>
                                         <div class="col-md-1">
-                                            <h5 for="">{{ $total - $discount_total }} </h5>
+                                            <h5 for="">
+                                                {{ number_format($total - $discount_total, 2, '.', ',') }} </h5>
                                         </div>
                                         <div class="col-md-2 p-0">
 
@@ -959,7 +973,9 @@
 
                                         </div>
                                         <div class="col-md-1">
-                                            <h5 for="">{{ $total - ($total - $discount_total) }}</h5>
+                                            <h5 for="">
+                                                {{ number_format($total - ($total - $discount_total), 2, '.', ',') }}
+                                            </h5>
                                         </div>
                                         <div class="col-md-1 p-0">
 
@@ -1087,7 +1103,7 @@
                                                 @if ($discount_type != 3)
                                                     {{ $discount_amount }}%
                                                 @else
-                                                    PHP {{ $discount_amount }}
+                                                    PHP {{ number_format($discount_amount, 2, '.', ',') }}
                                                 @endif
                                             </h5>
                                         </div>
@@ -1232,7 +1248,8 @@
                                                         @endphp
                                                     @endif
                                                 @endif
-                                                {{ $per_piece }}
+                                                {{ number_format($per_piece, 2, '.', ',') }}
+
                                             </h5>
                                         </div>
                                         <div class="col-md-1 ">
@@ -1244,7 +1261,7 @@
                                                     @endphp
                                                 @endif
                                             @endif
-                                            <h5> {{ $per_piece }}</h5>
+                                            <h5> {{ number_format($per_piece, 2, '.', ',') }} </h5>
 
                                             @php
                                                 $total += $per_piece;
@@ -1259,7 +1276,8 @@
                                                     $discount_total += $discounted_perpiece;
                                                 @endphp
                                                 <h5>
-                                                    {{ $discounted_perpiece }}
+                                                    {{ number_format($discounted_perpiece, 2, '.', ',') }}
+
                                                 </h5>
                                             </div>
                                         @endif
@@ -1276,7 +1294,7 @@
                                     </div>
                                     @if ($discount_type != 1)
                                         <div class="col-md-1">
-                                            <h5>{{ $total }}</h5>
+                                            <h5> {{ number_format($total, 2, '.', ',') }} </h5>
                                         </div>
                                         <div class="col-md-2 p-0">
 
@@ -1286,7 +1304,7 @@
 
                                         </div>
                                         <div class="col-md-2 p-0">
-                                            <h5>{{ $total }}</h5>
+                                            <h5>{{ number_format($total, 2, '.', ',') }}</h5>
                                         </div>
                                     @endif
                                     @if ($discount_type != 0)
@@ -1297,17 +1315,18 @@
                                                 <h5 for="">Discount </h5>
                                             </div>
                                             <div class="col-md-1">
-                                                <h5 for="">(
+                                                <h5 for="">
                                                     @if ($discount_type == 2)
                                                         @php
                                                             $discount_total = $total * ($discount_amount / 100);
                                                         @endphp
                                                     @else
                                                         @php
-                                                            $discount_total = $total - $discount_amount;
+                                                            $discount_total = $discount_amount;
                                                         @endphp
                                                     @endif
-                                                    {{ $discount_total }})
+                                                    {{ number_format($discount_total, 2, '.', ',') }} 
+
                                                 </h5>
                                             </div>
                                             <div class="col-md-2 p-0">
@@ -1321,7 +1340,9 @@
 
                                             </div>
                                             <div class="col-md-1  p-0">
-                                                <h5 for=""> ( {{ $total - $discount_total }} )</h5>
+                                                <h5 for=""> (
+                                                    {{ number_format($total - $discount_total, 2, '.', ',') }} )
+                                                </h5>
                                             </div>
                                             <div class="col-md-1  p-0">
 
@@ -1340,7 +1361,8 @@
                                             <h6 for="">Grand Total </h6>
                                         </div>
                                         <div class="col-md-1">
-                                            <h5 for="">{{ $total - $discount_total }} </h5>
+                                            <h5 for="">
+                                                {{ number_format($total - $discount_total, 2, '.', ',') }} </h5>
                                         </div>
                                         <div class="col-md-2 p-0">
 
@@ -1353,7 +1375,9 @@
 
                                         </div>
                                         <div class="col-md-1  p-0">
-                                            <h5 for="">{{ $total - ($total - $discount_total) }}</h5>
+                                            <h5 for="">
+                                                {{ number_format($total - ($total - $discount_total), 2, '.', ',') }}
+                                            </h5>
                                         </div>
                                         <div class="col-md-1 p-0">
 
@@ -1413,7 +1437,7 @@
                                                 @elseif($discount_type == 2)
                                                     {{ $discount_amount }}% on overall total
                                                 @elseif($discount_type == 3)
-                                                    Less {{ $discount_amount }} on total
+                                                    Less {{ number_format($discount_amount, 2, '.', ',') }} on total
                                                 @endif
                                             </h5>
                                         </div>
@@ -1542,7 +1566,8 @@
                                                             @endphp
                                                         @endif
                                                     @endif
-                                                    {{ $per_piece }}
+                                                    {{ number_format($per_piece, 2, '.', ',') }}
+
                                                 </h5>
                                             </div>
                                             <div class="col-md-1 " style="text-align: right">
@@ -1554,7 +1579,7 @@
                                                         @endphp
                                                     @endif
                                                 @endif
-                                                <h5> {{ $per_piece }}</h5>
+                                                <h5> {{ number_format($per_piece, 2, '.', ',') }} </h5>
 
                                                 @php
                                                     $total += $per_piece;
@@ -1569,7 +1594,8 @@
                                                         $discount_total += $discounted_perpiece;
                                                     @endphp
                                                     <h5>
-                                                        {{ $discounted_perpiece }}
+                                                        {{ number_format($discounted_perpiece, 2, '.', ',') }}
+
                                                     </h5>
                                                 </div>
                                             @endif
@@ -1583,7 +1609,7 @@
                                         </div>
                                         @if ($discount_type != 1)
                                             <div class="col-md-1" style="text-align: right">
-                                                <h5>{{ $total }}</h5>
+                                                <h5> {{ number_format($total, 2, '.', ',') }} </h5>
                                             </div>
                                             <div class="col-md-1 p-0">
 
@@ -1593,7 +1619,7 @@
 
                                             </div>
                                             <div class="col-md-1 p-0" style="text-align: left">
-                                                <h5>{{ $total }}</h5>
+                                                <h5> {{ number_format($total, 2, '.', ',') }} </h5>
                                             </div>
                                         @endif
                                         @if ($discount_type != 0)
@@ -1604,17 +1630,18 @@
                                                     <h5 for="">Discount </h5>
                                                 </div>
                                                 <div class="col-md-1" style="text-align: right">
-                                                    <h5 for="">(
+                                                    <h5 for="">
                                                         @if ($discount_type == 2)
                                                             @php
                                                                 $discount_total = $total * ($discount_amount / 100);
                                                             @endphp
                                                         @else
                                                             @php
-                                                                $discount_total = $total - $discount_amount;
+                                                                $discount_total = $discount_amount;
                                                             @endphp
                                                         @endif
-                                                        {{ $discount_total }})
+                                                        {{ number_format($discount_total, 2, '.', ',') }} 
+
                                                     </h5>
                                                 </div>
                                                 <div class="col-md-1 p-0">
@@ -1627,7 +1654,9 @@
 
                                                 </div>
                                                 <div class="col-md-1  p-0" style="text-align: left">
-                                                    <h5 for=""> ( {{ $total - $discount_total }} )</h5>
+                                                    <h5 for=""> (
+                                                        {{ number_format($total - $discount_total, 2, '.', ',') }}
+                                                        )</h5>
                                                 </div>
                                             @endif
                                         @else
@@ -1641,7 +1670,9 @@
                                                 <h6 for="">Overall Total </h6>
                                             </div>
                                             <div class="col-md-1" style="text-align: right">
-                                                <h5 for="">{{ $total - $discount_total }} </h5>
+                                                <h5 for="">
+                                                    {{ number_format($total - $discount_total, 2, '.', ',') }}
+                                                </h5>
                                             </div>
                                             <div class="col-md-1 p-0">
 
@@ -1654,7 +1685,9 @@
 
                                             </div>
                                             <div class="col-md-1  p-0" style="text-align: left">
-                                                <h5 for="">{{ $total - ($total - $discount_total) }}</h5>
+                                                <h5 for="">
+                                                    {{ number_format($total - ($total - $discount_total), 2, '.', ',') }}
+                                                </h5>
                                             </div>
                                         @endif
                                     </div>
@@ -1709,7 +1742,7 @@
                                                 @elseif($discount_type == 2)
                                                     {{ $discount_amount }}% on overall total
                                                 @elseif($discount_type == 3)
-                                                    Less {{ $discount_amount }} on total
+                                                    Less {{ number_format($discount_amount, 2, '.', ',') }} on total
                                                 @endif
                                             </h5>
                                         </div>
@@ -1838,7 +1871,8 @@
                                                             @endphp
                                                         @endif
                                                     @endif
-                                                    {{ $per_piece }}
+                                                    {{ number_format($per_piece, 2, '.', ',') }}
+
                                                 </h5>
                                             </div>
                                             <div class="col-md-1 " style="text-align: right">
@@ -1850,7 +1884,7 @@
                                                         @endphp
                                                     @endif
                                                 @endif
-                                                <h5> {{ $per_piece }}</h5>
+                                                <h5> {{ number_format($per_piece, 2, '.', ',') }} </h5>
 
                                                 @php
                                                     $total += $per_piece;
@@ -1865,7 +1899,8 @@
                                                         $discount_total += $discounted_perpiece;
                                                     @endphp
                                                     <h5>
-                                                        {{ $discounted_perpiece }}
+                                                        {{ number_format($discounted_perpiece, 2, '.', ',') }}
+
                                                     </h5>
                                                 </div>
                                             @endif
@@ -1879,7 +1914,7 @@
                                         </div>
                                         @if ($discount_type != 1)
                                             <div class="col-md-1" style="text-align: right">
-                                                <h5>{{ $total }}</h5>
+                                                <h5> {{ number_format($total, 2, '.', ',') }} </h5>
                                             </div>
                                             <div class="col-md-1 p-0">
 
@@ -1889,7 +1924,7 @@
 
                                             </div>
                                             <div class="col-md-1 p-0" style="text-align: left">
-                                                <h5>{{ $total }}</h5>
+                                                <h5> {{ number_format($total, 2, '.', ',') }}</h5>
                                             </div>
                                         @endif
                                         @if ($discount_type != 0)
@@ -1900,17 +1935,18 @@
                                                     <h5 for="">Discount </h5>
                                                 </div>
                                                 <div class="col-md-1" style="text-align: right">
-                                                    <h5 for="">(
+                                                    <h5 for="">
                                                         @if ($discount_type == 2)
                                                             @php
                                                                 $discount_total = $total * ($discount_amount / 100);
                                                             @endphp
                                                         @else
                                                             @php
-                                                                $discount_total = $total - $discount_amount;
+                                                                $discount_total = $discount_amount;
                                                             @endphp
                                                         @endif
-                                                        {{ $discount_total }})
+                                                        {{ number_format($discount_total, 2, '.', ',') }} 
+
                                                     </h5>
                                                 </div>
                                                 <div class="col-md-1 p-0">
@@ -1923,7 +1959,9 @@
 
                                                 </div>
                                                 <div class="col-md-1  p-0" style="text-align: left">
-                                                    <h5 for=""> ( {{ $total - $discount_total }} )</h5>
+                                                    <h5 for=""> (
+                                                        {{ number_format($total - $discount_total, 2, '.', ',') }} )
+                                                    </h5>
                                                 </div>
                                             @endif
                                         @else
@@ -1937,7 +1975,8 @@
                                                 <h6 for="">Overall Total </h6>
                                             </div>
                                             <div class="col-md-1" style="text-align: right">
-                                                <h5 for="">{{ $total - $discount_total }} </h5>
+                                                <h5 for="">
+                                                    {{ number_format($total - $discount_total, 2, '.', ',') }} </h5>
                                             </div>
                                             <div class="col-md-1 p-0">
 
@@ -1950,7 +1989,9 @@
 
                                             </div>
                                             <div class="col-md-1  p-0" style="text-align: left">
-                                                <h5 for="">{{ $total - ($total - $discount_total) }}</h5>
+                                                <h5 for="">
+                                                    {{ number_format($total - ($total - $discount_total), 2, '.', ',') }}
+                                                </h5>
                                             </div>
                                         @endif
 
@@ -2002,7 +2043,7 @@
                                             <h5>Remaining Payable</h5>
                                         </div>
                                         <div class="col-md-2" style="text-align: right">
-                                            <h5>{{ $inquiry->remaining_due() }}</h5>
+                                            <h5>{{ number_format($inquiry->remaining_due(), 2, '.', ',') }}</h5>
                                         </div>
 
                                     </div>
