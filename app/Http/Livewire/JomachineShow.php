@@ -38,7 +38,6 @@ class JomachineShow extends Component
                 $e->where('status', 4)->orWhere('status', 5);
             })->whereIn('product_id', product::where('machine_id', $this->machine)->pluck('id'))->get();
         }
-        $this->inquiry_products = inquiry_product::all();
         $this->machines = machine::all();
         return view('livewire.jomachine-show');
     }
