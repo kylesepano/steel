@@ -231,75 +231,75 @@
                                                                     @if ($length[$x] != null)
                                                                         @if ($variation_selected[$x] != null)
                                                                             @if ($product_selected[$x]->purlin == 1)
-                                                                                @if ($length[$x] === $product_selected[$x]->standard_length)
+                                                                                @if ($length[$x] == $product_selected[$x]->standard_length)
                                                                                     @if ($customer->type === 'End User')
                                                                                         @php
-                                                                                            $per_piece += $product_selected[$x]->price()->end_user * $variation_selected[$x]->weight_meter * $product_selected[$x]->standard_length;
+                                                                                            $per_piece += ceil($product_selected[$x]->price()->end_user * $variation_selected[$x]->weight_meter * $product_selected[$x]->standard_length);
                                                                                         @endphp
                                                                                     @elseif($customer->type === 'Dealer')
                                                                                         @php
-                                                                                            $per_piece += $product_selected[$x]->price()->dealer * $variation_selected[$x]->weight_meter * $product_selected[$x]->standard_length;
+                                                                                            $per_piece += ceil($product_selected[$x]->price()->dealer * $variation_selected[$x]->weight_meter * $product_selected[$x]->standard_length);
                                                                                         @endphp
                                                                                     @else
                                                                                         @php
-                                                                                            $per_piece += $product_selected[$x]->price()->contractor * $variation_selected[$x]->weight_meter * $product_selected[$x]->standard_length;
+                                                                                            $per_piece += ceil($product_selected[$x]->price()->contractor * $variation_selected[$x]->weight_meter * $product_selected[$x]->standard_length);
                                                                                         @endphp
                                                                                     @endif
                                                                                 @else
                                                                                     @if ($customer->type === 'End User')
                                                                                         @php
-                                                                                            $per_piece += $product_selected[$x]->price()->end_user * $variation_selected[$x]->weight_meter * $length[$x];
+                                                                                            $per_piece += ceil(($product_selected[$x]->price()->end_user + $product_selected[$x]->price()->additional_special_cut) * $variation_selected[$x]->weight_meter * $length[$x]);
                                                                                         @endphp
                                                                                     @elseif($customer->type === 'Dealer')
                                                                                         @php
-                                                                                            $per_piece += $product_selected[$x]->price()->dealer * $variation_selected[$x]->weight_meter * $length[$x];
+                                                                                            $per_piece += ceil(($product_selected[$x]->price()->dealer + $product_selected[$x]->price()->additional_special_cut) * $variation_selected[$x]->weight_meter * $length[$x]);
                                                                                         @endphp
                                                                                     @else
                                                                                         @php
-                                                                                            $per_piece += $product_selected[$x]->price()->contractor * $variation_selected[$x]->weight_meter * $length[$x];
+                                                                                            $per_piece += ceil(($product_selected[$x]->price()->contractor + $product_selected[$x]->price()->additional_special_cut) * $variation_selected[$x]->weight_meter * $length[$x]);
                                                                                         @endphp
                                                                                     @endif
                                                                                 @endif
                                                                             @elseif($product_selected[$x]->purlin == 0 && $product_selected[$x]->length_dependent == 0)
                                                                                 @if ($customer->type === 'End User')
                                                                                     @php
-                                                                                        $per_piece += $product_selected[$x]->price()->end_user * $length[$x];
+                                                                                        $per_piece += ceil($product_selected[$x]->price()->end_user * $length[$x]);
                                                                                     @endphp
                                                                                 @elseif($customer->type === 'Dealer')
                                                                                     @php
-                                                                                        $per_piece += $product_selected[$x]->price()->dealer * $length[$x];
+                                                                                        $per_piece += ceil($product_selected[$x]->price()->dealer * $length[$x]);
                                                                                     @endphp
                                                                                 @else
                                                                                     @php
-                                                                                        $per_piece += $product_selected[$x]->price()->contractor * $length[$x];
+                                                                                        $per_piece += ceil($product_selected[$x]->price()->contractor * $length[$x]);
                                                                                     @endphp
                                                                                 @endif
                                                                             @elseif($product_selected[$x]->purlin == 0 && $product_selected[$x]->special_cut == 0)
                                                                                 @if ($customer->type === 'End User')
                                                                                     @php
-                                                                                        $per_piece += $product_selected[$x]->price()->end_user * $length[$x];
+                                                                                        $per_piece += ceil($product_selected[$x]->price()->end_user * $length[$x]);
                                                                                     @endphp
                                                                                 @elseif($customer->type === 'Dealer')
                                                                                     @php
-                                                                                        $per_piece += $product_selected[$x]->price()->dealer * $length[$x];
+                                                                                        $per_piece += ceil($product_selected[$x]->price()->dealer * $length[$x]);
                                                                                     @endphp
                                                                                 @else
                                                                                     @php
-                                                                                        $per_piece += $product_selected[$x]->price()->contractor * $length[$x];
+                                                                                        $per_piece += ceil($product_selected[$x]->price()->contractor * $length[$x]);
                                                                                     @endphp
                                                                                 @endif
                                                                             @elseif($product_selected[$x]->production_process == 0)
                                                                                 @if ($customer->type === 'End User')
                                                                                     @php
-                                                                                        $per_piece += $product_selected[$x]->price()->end_user;
+                                                                                        $per_piece += ceil($product_selected[$x]->price()->end_user);
                                                                                     @endphp
                                                                                 @elseif($customer->type === 'Dealer')
                                                                                     @php
-                                                                                        $per_piece += $product_selected[$x]->price()->dealer;
+                                                                                        $per_piece += ceil($product_selected[$x]->price()->dealer);
                                                                                     @endphp
                                                                                 @else
                                                                                     @php
-                                                                                        $per_piece += $product_selected[$x]->price()->contractor;
+                                                                                        $per_piece += ceil($product_selected[$x]->price()->contractor);
                                                                                     @endphp
                                                                                 @endif
                                                                             @endif
